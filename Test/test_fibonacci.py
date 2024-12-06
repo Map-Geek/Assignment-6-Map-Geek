@@ -1,0 +1,23 @@
+"""
+Python Development II Assignment 6: A Fibonacci Series Iterable
+Geetha Ramesh
+
+test_fibonacci.py
+
+This module contains unit tests for the Fibonacci class defined in `fibonacci.py`.
+The tests verify: input validation for the constructor, behavior of the iterator
+for various inputs, handling of negative numbers and raising StopIteration.
+"""
+
+import pytest
+from fibonacci import Fibonacci
+
+
+def test_raise_value_error_for_non_integer():
+    """
+    Test that the Fibonacci constructor raises a ValueError when passed a non-integer.
+    """
+    with pytest.raises(ValueError):
+        Fibonacci("two")
+    with pytest.raises(ValueError):
+        Fibonacci(6.7)
