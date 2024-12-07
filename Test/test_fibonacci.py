@@ -21,3 +21,10 @@ def test_raise_value_error_for_non_integer():
         Fibonacci("two")
     with pytest.raises(ValueError):
         Fibonacci(6.7)
+
+
+def test_fibonacci_with_zero():
+    """
+    Test that Fibonacci(0) produces [0] when cast to a list.
+    """
+    assert list(Fibonacci(0)) == [0]
