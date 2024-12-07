@@ -33,10 +33,7 @@ class Fibonacci:
         if not isinstance(num, int):
             raise ValueError("Input must be an integer")
 
-        if num < 0:
-            self.num = 0  # If negative input, default to 0
-        else:
-            self.num = num
+        self.num = num
         self.count = 0
         self.current_num, self.next_num = 0, 1  # Initialize the first two Fibonacci numbers
 
@@ -49,15 +46,19 @@ class Fibonacci:
     def __next__(self):
         """
         Generates the next number in the Fibonacci sequence.
-        :return: int: The next Fibonacci number in the sequence.
+        This method returns the value of the Fibonacci number for the current iteration,
+        stored in `previous_fib`, and then updates the internal state for the next iteration.
+        The `current_num` is updated to the value of `next_num`, and `next_num` is updated
+        to the sum of the previous two Fibonacci numbers.
+
+        :return: int: The Fibonacci number for the current iteration (stored in 'previous_fib').
         :raises: StopIteration: When the specified number of terms has been generated.
         """
-        if self.count > self.num:
+        if self.count >= self.num + 1:
             raise StopIteration
 
-        if self.count == 0:
-            self.count += 1
-            return 0  # Return first fibonacci number
-        if self.count == 1:
-            self.count += 1
-            return 1  # Return second fibonacci number
+        self.count += 1
+        previous_fib = self.current_num
+        self.current_num = self.next_num
+        self.next_num = self.current_num + previous_fib
+        return previous_fib
