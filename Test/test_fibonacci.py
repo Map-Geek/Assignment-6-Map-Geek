@@ -42,3 +42,10 @@ def test_fibonacci_with_two():
     Test that Fibonacci(2) produces [0, 1, 1] when cast to a list.
     """
     assert list(Fibonacci(2)) == [0, 1, 1]
+
+
+def test_fibonacci_with_four():
+    """
+    Test that Fibonacci(4) produces [0, 1, 1, 2, 3] when cast to a list.
+    """
+    assert list(Fibonacci(4)) == [0, 1, 1, 2, 3]
