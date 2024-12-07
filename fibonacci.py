@@ -58,3 +58,6 @@ class Fibonacci:
         if self.count == 0:
             self.count += 1
             return 0  # Return first fibonacci number
+        if self.count == 1:
+            self.count += 1
+            return 1  # Return second fibonacci number
