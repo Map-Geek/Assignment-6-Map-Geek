@@ -56,3 +56,24 @@ def test_fibonacci_with_ten():
     Test that Fibonacci(10) produces [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55] when cast to a list.
     """
     assert list(Fibonacci(10)) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+
+def test_fibonacci_with_negative():
+    """
+    Test that Fibonacci(-5) produces an empty list when cast to a list.
+    """
+    assert list(Fibonacci(-5)) == []
+
+
+def test_fibonacci_stop_iteration():
+    """
+    Test that Fibonacci raises StopIteration.
+    """
+    fib = Fibonacci(3)
+    iterator = iter(fib)
+    assert next(iterator) == 0
+    assert next(iterator) == 1
+    assert next(iterator) == 1
+    assert next(iterator) == 2
+    with pytest.raises(StopIteration):
+        next(iterator)  # StopIteration should be raised when the sequence ends
